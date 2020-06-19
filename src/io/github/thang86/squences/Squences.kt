@@ -13,6 +13,21 @@ fun main(args: Array<String>) {
             6 to Car("yellow","Honda",2019)
             )
 
-    println(immutableMap)
+    val imutablList = listOf<Car>(
+            Car("green","Toyota",2015),
+            Car("yellow","Honda",2019),
+            Car("red","Ford",2016),
+            Car("siliver","Toyota",2020)
+    )
+    println(immutableMap.asSequence().filter { it -> it.value.model=="Ford" }.map { it -> it.value.color }.toList())
+
+    var model = imutablList.asSequence()
+            .filter { println("filter $it ");  it.model.endsWith("a") }
+            .map {println("map $it "); it.model }
+
+    for (i in model){
+        println(i)
+    }
 }
 data class Car(val color:String,val model: String,var year:Int)
+
