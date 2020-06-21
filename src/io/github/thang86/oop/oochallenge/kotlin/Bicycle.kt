@@ -4,6 +4,9 @@ package io.github.thang86.oop.oochallenge.kotlin
 fun main(args: Array<String>) {
     var bicycle = MountainBike(12,5,9,5)
     bicycle.printDescription()
+
+    var mountainBike = MountainBike("BLUR",10,5,2,3)
+    mountainBike.printDescription()
 }
 abstract class Bicycle(var cadence: Int, var gear: Int, var speed: Int) {
 
@@ -22,6 +25,11 @@ abstract class Bicycle(var cadence: Int, var gear: Int, var speed: Int) {
 }
 
 class MountainBike( var seatHeight:Int, cadence: Int,gear: Int,speed: Int):Bicycle(cadence,gear,speed){
+
+    constructor(color:String,seatHeight: Int,cadence: Int,gear: Int,speed: Int):this(seatHeight, cadence, gear, speed){
+        println("This is the $color")
+    }
+
     override fun printDescription() {
         super.printDescription()
         println("The mountain bike has a seat height of $seatHeight inches.")
